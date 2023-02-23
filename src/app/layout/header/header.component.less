@@ -55,8 +55,10 @@
 }
 
 .user-profile-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--links-color);
-    text-decoration: underline;
 }
 
 .user-profile-link:hover {
@@ -64,8 +66,17 @@
     color: var(--links-color-hover);
 }
 
+.user-profile-title, .user-logout-title {
+    margin-left: 0.8rem;
+    font-size: 2rem;
+}
+
+.user-logout-title {
+    color: var(--background-color);
+}
+
 .btn {
-    width: 150px;
+    width: 200px;
     height: 40px;
     color: white;
     border: none;
