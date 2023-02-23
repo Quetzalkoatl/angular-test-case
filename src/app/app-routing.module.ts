@@ -6,29 +6,35 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: () =>
-            import('app/home/home.module').then((m) => m.HomeModule),
+            import('app/pages/home/home.module').then((m) => m.HomeModule),
     },
     {
         path: 'inventory',
         loadChildren: () =>
-            import('app/inventory/inventory.module').then(
+            import('app/pages/inventory/inventory.module').then(
                 (m) => m.InventoryModule
             ),
     },
     {
         path: 'reports',
         loadChildren: () =>
-            import('app/reports/reports.module').then((m) => m.ReportsModule),
+            import('app/pages/reports/reports.module').then(
+                (m) => m.ReportsModule
+            ),
     },
     {
         path: 'billing',
         loadChildren: () =>
-            import('app/billing/billing.module').then((m) => m.BillingModule),
+            import('app/pages/billing/billing.module').then(
+                (m) => m.BillingModule
+            ),
     },
     {
         path: 'profile',
         loadChildren: () =>
-            import('app/profile/profile.module').then((m) => m.ProfileModule),
+            import('app/pages/profile/profile.module').then(
+                (m) => m.ProfileModule
+            ),
     },
 ];
 
