@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100px;
+    background-color: rgb(226, 226, 226);
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.update-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.message-success, .message-error {
+    font-size: 1.7rem;
+}
+
+.message-success {
+    color: var(--main-color-2);
+}
+
+.message-error {
+    color: red;
+}
+
+.error-text {
+    font-size: 1.7rem;
+}
+
+.close-error {
+    margin-left: 40px;
+}
+
+.close-error:hover {
+    cursor: pointer;
+}
+
+.user-name, .user-profile-link, .btn {
+    font-size: 1.6rem;
+    color: var(--main-color-1);
+}
+
+.name {
+    font-size: 2rem;
+    color: green;
+}
+
+.user-profile-link {
+    color: var(--links-color);
+    text-decoration: underline;
+}
+
+.user-profile-link:hover {
+    cursor: pointer;
+    color: var(--links-color-hover);
+}
+
+.btn {
+    width: 150px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--button-color);
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: var(--button-text-color-hover);
+    background-color: var(--button-color-2);
+}
