@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="form-container">
+        <form class="form" #form="ngForm" (ngSubmit)="handleSubmit(form)">
+            <label class="form-element">
+                <input
+                    type="text"
+                    name="firstName"
+                    class="form-input"
+                    ngModel
+                    [ngModelOptions]="{ updateOn: 'submit' }"
+                    required
+                    minlength="5"
+                    #firstName="ngModel"
+                    placeholder="First Name"
+                />
+                <ng-container *ngIf="firstName.invalid && form.submitted">
+                    <div
+                        class="validation-error"
+                        *ngIf="firstName.errors?.required"
+                    >
+                        First name is required
+                    </div>
+                    <div
+                        class="validation-error"
+                        *ngIf="firstName.errors?.minlength"
+                    >
+                        Minimum length of a firstName should be 5 symbols
+                    </div>
+                </ng-container>
+            </label>
+            <label class="form-element">
+                <input
+                    type="text"
+                    name="lastName"
+                    class="form-input"
+                    ngModel
+                    [ngModelOptions]="{ updateOn: 'submit' }"
+                    required
+                    #lastName="ngModel"
+                    placeholder="Last Name"
+                />
+                <ng-container *ngIf="lastName.invalid && form.submitted">
+                    <div
+                        class="validation-error"
+                        *ngIf="lastName.errors?.required"
+                    >
+                        Last name is required
+                    </div>
+                    <div
+                        class="validation-error"
+                        *ngIf="lastName.errors?.minlength"
+                    >
+                        Minimum length of a firstName should be 5 symbols
+                    </div>
+                </ng-container>
+            </label>
+            <label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-input"
+                    ngModel
+                    [ngModelOptions]="{ updateOn: 'submit' }"
+                    readonly
+                    placeholder="E-mail"
+                />
+            </label>
+            <label class="form-element">
+                <input
+                    type="tel"
+                    name="phone"
+                    class="form-input"
+                    ngModel
+                    [ngModelOptions]="{ updateOn: 'submit' }"
+                    required
+                    placeholder="Phone number"
+                    #phone="ngModel"
+                    [pattern]="validatePhoneNumberRegex"
+                />
+                <ng-container *ngIf="phone.invalid && form.submitted">
+                    <div
+                        class="validation-error"
+                        *ngIf="phone.errors?.required"
+                    >
+                        Phone number is required
+                    </div>
+                    <div class="validation-error" *ngIf="phone.errors?.pattern">
+                        <p>Phone number format should be <br />+75555555555</p>
+                    </div>
+                </ng-container>
+            </label>
+            <label class="form-element">
+                <input
+                    type="url"
+                    name="website"
+                    class="form-input"
+                    ngModel
+                    [ngModelOptions]="{ updateOn: 'submit' }"
+                    #website="ngModel"
+                    placeholder="Website"
+                    [pattern]="validateHttpRegex"
+                />
+                <ng-container *ngIf="website.invalid">
+                    <div class="validation-error">Wrong format of website</div>
+                </ng-container>
+            </label>
+            <button type="submit" class="btn">Update</button>
+            <pre>{{ form.value | json }}</pre>
+        </form>
+    </div>
+</div>
