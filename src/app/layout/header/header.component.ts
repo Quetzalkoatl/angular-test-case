@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IDisplayMessages } from 'app/models/displayMessages.model';
 import { IUser } from 'app/models/user.model';
 import { UserService } from 'app/services/user.service';
 
@@ -13,6 +14,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         lastName: 'Initials',
         phone: '+75555555',
     };
+
+    messages!: IDisplayMessages;
 
     successMessageStatus: boolean = false;
 
@@ -33,23 +36,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     getUserData() {
         this.userService.user$.subscribe((user) => {
             this.user = user;
-            if (
-                this.user.firstName.length > 4 &&
-                this.user.lastName.length > 4
-            ) {
-                this.successMessageStatus = true;
-                this.errorMessageStatus = false;
-                setTimeout(() => {
-                    this.successMessageStatus = false;
-                }, this.hideErrorMessageCountdown);
-            } else {
-                this.successMessageStatus = false;
-                this.errorMessageStatus = true;
-            }
         });
+        this.messages = this.userService.messages;
     }
 
     closeError() {
-        this.errorMessageStatus = false;
+        this.messages.error = false;
     }
 }

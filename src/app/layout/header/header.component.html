@@ -17,17 +17,13 @@
     </div>
     <div class="update-info">
         <div
-            *ngIf="successMessageStatus"
+            *ngIf="messages.success"
             class="message-success"
             id="message-success"
         >
             Profile updated successfully
         </div>
-        <div
-            class="message-error"
-            id="message-error"
-            *ngIf="errorMessageStatus"
-        >
+        <div class="message-error" id="message-error" *ngIf="messages.error">
             <span class="error-text">
                 Name is too short (required minimum 5 symbols), please enter
                 another name</span
