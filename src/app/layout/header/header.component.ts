@@ -12,16 +12,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     user: IUser = {
         firstName: "User's",
         lastName: 'Initials',
-        phone: '+75555555',
+        phone: '+75554443322',
     };
 
     messages!: IDisplayMessages;
-
-    successMessageStatus: boolean = false;
-
-    errorMessageStatus: boolean = false;
-
-    hideErrorMessageCountdown: number = 30000;
 
     constructor(private readonly userService: UserService) {}
 
@@ -35,7 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     getUserData() {
         this.userService.user$.subscribe((user) => {
-            this.user = user;
+            this.user = { ...user };
         });
         this.messages = this.userService.messages;
     }

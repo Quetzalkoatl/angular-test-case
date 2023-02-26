@@ -54,13 +54,13 @@
             </label>
             <label class="form-element">
                 <input
-                    type="tel"
+                    type="number"
                     name="phone"
                     class="form-input"
                     [ngModel]="'+7'"
                     [ngModelOptions]="{ updateOn: 'submit' }"
                     required
-                    placeholder="Phone number"
+                    placeholder="Phone number (10 digits format)"
                     #phone="ngModel"
                     [pattern]="validatePhoneNumberRegex"
                 />
@@ -73,7 +73,7 @@
                     </div>
                     <div class="validation-error" *ngIf="phone.errors?.pattern">
                         <p class="error-phone">
-                            Phone number format should be <br />+75555555555
+                            Phone number should contains <br />10 digits
                         </p>
                     </div>
                 </ng-container>

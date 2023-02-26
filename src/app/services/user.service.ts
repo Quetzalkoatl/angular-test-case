@@ -16,6 +16,7 @@ export class UserService {
     };
 
     changeUser(user: IUser) {
+        user = { ...user, phone: '+7' + user.phone };
         if (user.firstName.length > 4 && user.lastName.length > 4) {
             this.messages.success = true;
             this.messages.error = false;

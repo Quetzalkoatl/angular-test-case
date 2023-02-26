@@ -15,7 +15,7 @@ export class FormComponent {
     validateHttpRegex =
         /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
-    validatePhoneNumberRegex = /[+]{1}[7]{1}[0-9]{10}$/;
+    validatePhoneNumberRegex = /^\d{10}$/;
 
     handleSubmit(form: NgForm) {
         if (form.valid) {
