@@ -1,16 +1,12 @@
 <header class="container">
     <div class="user-info">
-        <!-- <div class="user-name">
-            First Name:
-            <span class="name">John</span>
-        </div>
-        <div class="user-name">
-            Last Name:
-            <span class="name">Smith</span>
-        </div> -->
         <div class="user-profile-link">
             <i class="fas fa-user fa-lg"></i>
-            <span class="user-profile-title">John Smith</span>
+            <span
+                class="user-profile-title"
+                *ngIf="user.firstName.length > 4 && user.lastName.length > 4"
+                >{{ user.firstName }} {{ user.lastName }}</span
+            >
         </div>
         <div class="logout-btn">
             <button class="btn">
@@ -20,15 +16,25 @@
         </div>
     </div>
     <div class="update-info">
-        <div class="message-success" id="message-success">
+        <div
+            *ngIf="successMessageStatus"
+            class="message-success"
+            id="message-success"
+        >
             Profile updated successfully
         </div>
-        <!-- <div class="message-error" id="message-error">
+        <div
+            class="message-error"
+            id="message-error"
+            *ngIf="errorMessageStatus"
+        >
             <span class="error-text">
                 Name is too short (required minimum 5 symbols), please enter
                 another name</span
             >
-            <span class="close-error">close X</span>
-        </div> -->
+            <span class="close-error error-text" (click)="closeError()"
+                >Close <i class="fa-regular fa-circle-xmark fa-lg"></i
+            ></span>
+        </div>
     </div>
 </header>
