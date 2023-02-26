@@ -23,7 +23,10 @@ export class FormComponent {
         if (form.valid) {
             this.updateUser.emit(form.value);
         } else {
-            console.log(form);
+            form.form.setErrors({
+                error: 'Form is invalid',
+            });
+            console.error(form.form.getError('error'));
         }
     }
 }

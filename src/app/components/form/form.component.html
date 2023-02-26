@@ -41,7 +41,7 @@
                     </div>
                 </ng-container>
             </label>
-            <label>
+            <label class="form-element">
                 <input
                     type="email"
                     name="email"
@@ -57,7 +57,7 @@
                     type="tel"
                     name="phone"
                     class="form-input"
-                    ngModel
+                    [ngModel]="'+7'"
                     [ngModelOptions]="{ updateOn: 'submit' }"
                     required
                     placeholder="Phone number"
