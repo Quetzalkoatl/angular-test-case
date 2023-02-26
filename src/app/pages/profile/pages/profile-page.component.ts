@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IUser } from 'app/models/user.model';
-import { UserService } from 'services/user.service';
+import { UserService } from 'app/services/user.service';
 import { ProfilePageService } from '../services';
 
 @Component({
