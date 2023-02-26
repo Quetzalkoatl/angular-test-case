@@ -17,8 +17,6 @@ export class FormComponent {
 
     validatePhoneNumberRegex = /[+]{1}[7]{1}[0-9]{10}$/;
 
-    // pattern="[+][7]{1}[-][0-9]{3}[-][0-9]{3}[-][0-9]{2}[-][0-9]{2}"
-
     handleSubmit(form: NgForm) {
         if (form.valid) {
             this.updateUser.emit(form.value);

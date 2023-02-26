@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IUser } from 'app/models/user.model';
 import { UserService } from 'app/services/user.service';
 
@@ -7,7 +7,7 @@ import { UserService } from 'app/services/user.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.less'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
     user: IUser = {
         firstName: "User's",
         lastName: 'Initials',
@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         this.getUserData();
+    }
+
+    ngOnDestroy(): void {
+        this.userService.user$.unsubscribe();
     }
 
     getUserData() {
